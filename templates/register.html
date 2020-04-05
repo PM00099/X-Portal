@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Sign Up</title>
+</head>
+
+<body>
+    <hgroup>
+        <h1 class="text-center my-2">Create an account</h1>
+        <hr>
+        {% if error %}
+        <p class="text-center" style="color: red;">{{ error }}</p>
+        {% endif %}
+     
+    </hgroup>
+    <div class="container">
+        <form method="post" action="{% url 'signup' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">User Name</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="fname">First Name</label>
+                <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter your first name"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter your Last name"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your valid email"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone No.</label>
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your Phone no."
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="pass1">Password</label>
+                <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Enter your Password"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="pass2"> Confirm Password</label>
+                <input type="password" class="form-control" id="pass2" name="pass2"
+                    placeholder="Enter your Confirm Password" required>
+            </div>
+            <div class="form-group">
+                <label for="age"> Age</label>
+                <input type="number" class="form-control" id="age" name="age" placeholder="Enter your Age" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a type="submit" class="btn btn-success ml-2 my-sm-0" href="{% url 'login' %}">Log In</a>
+
+        </form>
+    </div>
+</body>
+
+</html>
